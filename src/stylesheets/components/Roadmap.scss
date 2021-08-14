@@ -1,3 +1,7 @@
 .Roadmap {
   grid-area: roadmap;
 }
+
+.Roadmap__Items {
+  display: flex;
+}
