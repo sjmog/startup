@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Startup
+
+A game where you build a startup. Based on [this idea](https://regal-taste-6bf.notion.site/CTO-Game-64798c51c5f248bea1ac95a235091c82). Fun and can sneakily be used for training people.
+
+## Tech stuff
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
