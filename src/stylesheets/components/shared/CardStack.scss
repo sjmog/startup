@@ -3,6 +3,10 @@
   height: 240px;
   width: 160px;
   border-radius: $border-radius;
+
+  .Card {
+    position: absolute;
+  }
   
   &:hover .Card {
     -webkit-transform: scale(1.025);
@@ -28,9 +32,12 @@
   width: 160px;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
   border-radius: $border-radius;
-
-  position: absolute;
   background: $white;
-
   transition: all 0.2s ease-in-out;
+
+  &:hover {
+    -webkit-transform: scale(1.025);
+    -ms-transform: scale(1.025);
+    transform: scale(1.025);
+  }
 }

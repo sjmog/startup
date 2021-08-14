@@ -1,3 +1,28 @@
 .Kanban {
   grid-area: kanban;
+
+  .react-kanban-board {
+    padding: 0;
+  }
+
+  .react-kanban-column {
+    padding: 0 1rem 1rem;
+    border-radius: $border-radius;
+    max-height: 20vh;
+    overflow-y: scroll;
+  }
+
+  .react-kanban-column-header {
+    font-size: 1rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    border: 1px solid $light-gray;
+    border-top-left-radius: $border-radius;
+    border-right: none;
+    background: $white;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 1rem;
+  }
 }

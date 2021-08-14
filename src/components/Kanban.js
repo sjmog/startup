@@ -39,7 +39,6 @@ const Kanban = () => {
 
   return (
     <div className="Kanban">
-      <h3 className="header">Kanban</h3>
       <Board initialBoard={board} />
     </div>
   )

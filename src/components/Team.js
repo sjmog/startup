@@ -1,7 +1,20 @@
+const TeamMember = ({ name }) => {
+  return(
+    <div className="TeamMember Card">
+      { name }
+    </div>
+  )
+}
+
 const Team = () => {
+  const team = [{ id: 1, name: 'Ranulfi' }, { id: 2, name: 'Sophia' }]
+
   return (
     <div className="Team">
-      Team
+      <h3 className="header">Team</h3>
+      <div className="Team__Members">
+        { team.map(({ id, name }) => <TeamMember key={`team-member-${id}`} name={name} />) }
+      </div>
     </div>
   )
 }
