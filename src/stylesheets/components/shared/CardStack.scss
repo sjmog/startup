@@ -1,0 +1,36 @@
+.CardStack {
+  border: 4px dotted #fafafa;
+  height: 240px;
+  width: 160px;
+  border-radius: $border-radius;
+  
+  &:hover .Card {
+    -webkit-transform: scale(1.025);
+    -ms-transform: scale(1.025);
+    transform: scale(1.025);
+
+    &:nth-child(1) {
+      -webkit-transform: rotate(5deg);
+      -ms-transform: rotate(5deg);
+      transform: rotate(5deg);
+    }
+
+    &:nth-child(3) {
+      -webkit-transform: rotate(-5deg);
+      -ms-transform: rotate(-5deg);
+      transform: rotate(-5deg);
+    }
+  }
+}
+
+.Card {
+  height: 240px;
+  width: 160px;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: $border-radius;
+
+  position: absolute;
+  background: $white;
+
+  transition: all 0.2s ease-in-out;
+}

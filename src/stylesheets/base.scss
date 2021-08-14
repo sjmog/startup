@@ -10,7 +10,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+@import "./components/shared/CardStack";
+
+@import "./components/App";
+@import "./components/Cash";
+@import "./components/Events";
+@import "./components/Kanban";
+@import "./components/OtherPlayers";
+@import "./components/Recruitment";
+@import "./components/Roadmap";
+@import "./components/Team";

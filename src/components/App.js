@@ -1,7 +1,5 @@
 import { createContext } from 'react'
 
-import '../stylesheets/components/App.scss'
-
 import Events from './Events'
 import Recruitment from './Recruitment'
 import Roadmap from './Roadmap'

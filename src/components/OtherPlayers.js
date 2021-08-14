@@ -1,5 +1,3 @@
-import '../stylesheets/components/OtherPlayers.scss'
-
 const OtherPlayers = () => {
   return (
     <div className="OtherPlayers">

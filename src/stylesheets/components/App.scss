@@ -3,10 +3,8 @@
   height: 100vh;
 
   display: grid;
-  // grid-template-columns: repeat(12, 1fr);
-  // grid-template-rows: auto;
 
-  grid-template:
+  grid:
     [row1-start] "events  events  recruitment recruitment players" auto [row1-end]
     [row2-start] "roadmap roadmap roadmap     roadmap     players" auto [row2-end]
     [row3-start] "roadmap roadmap roadmap     roadmap     players" auto [row3-end]
