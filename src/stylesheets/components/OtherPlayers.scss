@@ -1,3 +1,6 @@
 .OtherPlayers {
-  grid-area: players;
+  position: absolute;
+  top: 120px;
+  right: 0;
+  transform: rotate(-90deg);
 }

@@ -1,3 +1,40 @@
 .Cash {
   grid-area: cash;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.Cash__Row {
+  width: 100%;
+  display: grid;
+  align-items: flex-end;
+  column-gap: 0.5rem;
+
+  grid:
+    [row1-start] "label value" auto [row1-end]
+      / 120px auto;
+
+  label {
+    grid-area: label;
+    text-align: right;
+    margin-bottom: 0.35rem;
+  }
+
+  &.Cash__Total label {
+    margin-bottom: 1.35rem;
+  }
+}
+
+.Cash__Amount {
+  grid-area: value;
+
+  span {
+    display: inline-block;
+    margin-left: 0.4rem;
+    font-weight: 400;
+    font-style: italic;
+  }
 }

@@ -8,9 +8,9 @@
   display: grid;
 
   grid:
-    [row1-start] "events  recruitment  recruitment roadmap players" auto [row1-end]
-    [row4-start] "kanban  kanban  kanban      kanban      players" auto [row4-end]
-    [row5-start] "kanban  kanban  kanban      kanban      players" auto [row5-end]
-    [row6-start] "team    team    team        cash        players" auto [row6-end]
-      / auto auto auto auto 90px;
+    [row1-start] "events  team  team hire" auto [row1-end]
+    [row4-start] "kanban  kanban  kanban  kanban"  auto [row4-end]
+    [row5-start] "kanban  kanban  kanban  kanban"  auto [row5-end]
+    [row6-start] "roadmap    roadmap    roadmap    cash"    auto [row6-end]
+      / auto auto auto auto;
 }
