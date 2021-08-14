@@ -13,9 +13,6 @@ const Cash = () => {
         <label className="h5">Expenditure</label>
         <div className="Cash__Amount h3">$2,440<span className="h5">per week</span></div>
       </div>
-      
-      
-      
     </div>
   )
 }

@@ -18,13 +18,20 @@ const App = () => {
   return (
     <div className="App">
       <WindowSizeContext.Provider value={ { width, height } }>
-        <Events />
-        <Recruitment />
-        <Roadmap />
-        <Kanban />
-        <Team />
-        <Cash />
-        <OtherPlayers />
+        <div className="Game">
+          <Events />
+          <Recruitment />
+          <Roadmap />
+          <Kanban />
+          <Team />
+          <Cash />
+          <OtherPlayers />
+        </div>
+        <div className="Controls">
+          Week
+
+          <a className="button">End turn</a>
+        </div>
       </WindowSizeContext.Provider>
     </div>
   )
