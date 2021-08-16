@@ -1,7 +1,9 @@
+import { useStore } from '../data/Store'
 import CardStack from './shared/CardStack'
 
 const Recruitment = () => {
-  const sources = [ { name: 'generation', candidates: [ { id: 1, name: 'dave' } ] }, { name: 'university', candidates: [] } ]
+  const sources = useStore('sources')
+  
   return (
     <div className="Recruitment">
       <h3 className="header">Hire</h3>

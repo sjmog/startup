@@ -1,16 +1,14 @@
+import { useStore } from '../data/Store'
 import CardStack from './shared/CardStack'
 
 const Features = () => {
-  const features = [ {
-          id: 1,
-          title: 'Add card',
-          description: 'Add capability to add a card in a column'
-        } ]
+  const features = useStore('features')
+
   return (
     <div className="Features">
       <h3 className="header">Features</h3>
       <CardStack>
-        { features.map(({id, text}) => <div key={ `event-${id}` } className="Feature">{text}</div>) }
+        { features.map(({id, title, description}) => <div key={ `event-${id}` } className="Feature">{title} {description}</div>) }
       </CardStack>
     </div>
   )

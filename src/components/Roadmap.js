@@ -1,3 +1,4 @@
+import { useStore } from '../data/Store'
 import { Children, cloneElement } from 'react'
 
 const RoadmapItem = ({ children }) => {
@@ -9,8 +10,8 @@ const RoadmapItem = ({ children }) => {
 }
 
 const Roadmap = () => {
-  const featureGroups = [{ id: 1, name: 'Social', features: [ { id: 1, name: 'Chat' }, { id: 2, name: 'Comments' }, { id: 3, name: 'Reactions' } ] },
-                         { id: 2, name: 'eCommerce', features: [ { id: 4, name: 'Cart' }, { id: 5, name: 'Payments' } ] }]
+  const featureGroups = useStore('featureGroups')
+  
   return (
     <div className="Roadmap">
       <h3 className="header">Roadmap</h3>

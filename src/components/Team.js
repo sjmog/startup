@@ -1,3 +1,5 @@
+import { useStore } from '../data/Store'
+
 const TeamMember = ({ name }) => {
   return(
     <div className="TeamMember Card">
@@ -7,7 +9,7 @@ const TeamMember = ({ name }) => {
 }
 
 const Team = () => {
-  const team = [{ id: 1, name: 'Ranulfi' }, { id: 2, name: 'Sophia' }]
+  const team = useStore('team')
 
   return (
     <div className="Team">

@@ -1,45 +1,13 @@
-import { useState } from 'react'
+import { useStore } from '../data/Store'
 import Board from '@asseinfo/react-kanban'
 import '@asseinfo/react-kanban/dist/styles.css'
 
-const INITIAL_BOARD = {
-  columns: [
-    {
-      id: 1,
-      title: 'Backlog',
-      cards: [
-        {
-          id: 1,
-          title: 'Add card',
-          description: 'Add capability to add a card in a column'
-        },
-      ]
-    },
-    {
-      id: 2,
-      title: 'In progress',
-      cards: [
-        {
-          id: 2,
-          title: 'Drag-n-drop support',
-          description: 'Move a card between the columns'
-        },
-      ]
-    },
-    {
-      id: 3,
-      title: 'Done',
-      cards: []
-    }
-  ]
-}
-
 const Kanban = () => {
-  const [board, setBoard] = useState(INITIAL_BOARD)
+  const kanban = useStore('kanban')
 
   return (
     <div className="Kanban">
-      <Board initialBoard={board} />
+      <Board initialBoard={kanban} />
     </div>
   )
 }

@@ -1,7 +1,9 @@
+import { useStore } from '../data/Store'
 import CardStack from './shared/CardStack'
 
 const Events = () => {
-  const events = [ {id: 1, text: "A person says hello."}, {id: 2, text: "Another thing happens."} ]
+  const events = useStore('events')
+
   return (
     <div className="Events">
       <h3 className="header">Events</h3>
