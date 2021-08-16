@@ -2,6 +2,7 @@ import { createContext } from 'react'
 
 import Events from './Events'
 import Recruitment from './Recruitment'
+import Features from './Features'
 import Roadmap from './Roadmap'
 import Kanban from './Kanban'
 import Cash from './Cash'
@@ -21,6 +22,7 @@ const App = () => {
         <div className="Game">
           <Events />
           <Recruitment />
+          <Features />
           <Roadmap />
           <Kanban />
           <Team />
