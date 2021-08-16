@@ -1,10 +1,11 @@
 import { createContext, useState, useContext } from 'react'
+import events from './Events'
 
 const StoreContext = createContext({})
 
 const Store = ({ children }) => {
-  const initialStore = {
-    events: [{id: 1, text: "A person says hello."}, {id: 2, text: "Another thing happens."}],
+  const INITIAL_STORE = {
+    events,
     team: [{ id: 1, name: 'Ranulfi' }, { id: 2, name: 'Sophia' }],
     sources: [ { name: 'generation', candidates: [ { id: 1, name: 'dave' } ] }, { name: 'university', candidates: [] } ],
     features: [{id: 1, title: 'Add card', description: 'Add capability to add a card in a column'}],
@@ -44,19 +45,21 @@ const Store = ({ children }) => {
     cash: 151332
   }
 
-  const [ state, setState ] = useState(initialStore)
+  const EVENT_ACTIONS = {
+    addCash: ({amount}) => setState({ ...state, cash: state.cash + amount })
+  }
+
+  const [ state, setState ] = useState(INITIAL_STORE)
 
   const actions = {
-    addEvent: ({ text }) => setState({ ...state, events: [...state.events, { id: nextEventId(), text }] }),
     getIncome: () => 0,
-    getExpenditure: () => 2440
+    getExpenditure: () => 2440,
+    ...EVENT_ACTIONS
   }
 
   // duplicative gets
   const getState  = (key) => JSON.parse(JSON.stringify(state[key]))
-  const getAction = (key) => (...args) => actions[key](...args)
-
-  const nextEventId = () => Math.max(state.events.map(({id}) => id)) + 1
+  const getAction = (action) => (...args) => actions[action](...args)
 
   return(
     <StoreContext.Provider value={{ getState, getAction }}>
@@ -70,9 +73,9 @@ const useStore = (key) => {
   return store.getState(key)
 }
 
-const useStoreAction = (key) => {
+const useStoreAction = (action, args = {}) => {
   const store = useContext(StoreContext)
-  return store.getAction(key)
+  return store.getAction(action, args)
 }
 
 export { Store as default, StoreContext, useStore, useStoreAction }

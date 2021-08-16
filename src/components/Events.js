@@ -1,5 +1,13 @@
-import { useStore } from '../data/Store'
+import { useStore, useStoreAction } from '../data/Store'
 import CardStack from './shared/CardStack'
+
+const Event = ({ id, text, action, className }) => {
+  const onClickAction = useStoreAction(action.type)
+
+  return(
+    <div onClick={() => onClickAction(action.args)} className={`Event ${ className }`}>{text}</div>
+  )
+}
 
 const Events = () => {
   const events = useStore('events')
@@ -8,7 +16,7 @@ const Events = () => {
     <div className="Events">
       <h3 className="header">Events</h3>
       <CardStack>
-        { events.map(({id, text}) => <div key={ `event-${id}` } className="Event">{text}</div>) }
+        { events.map(event => <Event key={ `event-${event.id}` } {...event} />) }
       </CardStack>
     </div>
   )

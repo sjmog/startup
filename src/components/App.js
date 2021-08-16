@@ -1,4 +1,6 @@
-import { useEffect } from 'react'
+import { useState } from 'react'
+
+import Overlay from './shared/Overlay'
 
 import Events from './Events'
 import Recruitment from './Recruitment'
@@ -12,6 +14,8 @@ import OtherPlayers from './OtherPlayers'
 import Store from '../data/Store'
 
 const App = () => {
+  const [viewedCard, setViewedCard] = useState(null)
+
   return (
     <div className="App">
       <Store>
@@ -28,8 +32,10 @@ const App = () => {
         <div className="Controls">
           Week
 
-          <a className="button">End turn</a>
+          <a className="button" onClick={() => setViewedCard(!viewedCard)}>End turn</a>
         </div>
+
+        { viewedCard && <Overlay onClick={() => setViewedCard(null)} /> }
       </Store>
     </div>
   )

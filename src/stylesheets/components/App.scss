@@ -7,6 +7,7 @@
   display: grid;
   padding: 1rem;
   height: 90vh;
+  background: $white;
 
   grid:
     [row1-start] "events  features team team hire" auto [row1-end]
@@ -22,6 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: $white;
 
   padding: 1rem;
 }
