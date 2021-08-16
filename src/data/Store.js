@@ -1,13 +1,22 @@
 import { createContext, useState, useContext } from 'react'
 import events from './Events'
+import people from './People'
 
 const StoreContext = createContext({})
 
 const Store = ({ children }) => {
-  const INITIAL_STORE = {
-    events,
-    team: [{ id: 1, name: 'Ranulfi' }, { id: 2, name: 'Sophia' }],
-    sources: [ { name: 'generation', candidates: [ { id: 1, name: 'dave' } ] }, { name: 'university', candidates: [] } ],
+  const team = []
+  const sources = people.reduce(function(arr, person) {
+    const existingSource = arr.find(({ source }) => source === person.source)
+
+    if(existingSource) { existingSource.candidates = [...existingSource.candidates, person] }
+
+    else { arr.push({ name: person.source, candidates: [person] }) }
+
+    return arr
+  }, []);
+
+  const INITIAL_STORE = { events, team, sources,
     features: [{id: 1, title: 'Add card', description: 'Add capability to add a card in a column'}],
     kanban: {
       columns: [

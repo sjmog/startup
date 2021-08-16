@@ -12,6 +12,6 @@ class Event {
 
 const addMoneyEvent = new Event({ text: 'You get money!', action: { type: 'addCash', args: { amount: 200 } } })
 
-const events = [addMoneyEvent]
+const EVENTS = [addMoneyEvent]
 
-export default events
+export default EVENTS
