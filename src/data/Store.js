@@ -1,10 +1,13 @@
 import { createContext, useState, useContext } from 'react'
 import events from './Events'
 import people from './People'
+import features from './Features'
+import roadmap from './Roadmap'
 
 const StoreContext = createContext({})
 
 const Store = ({ children }) => {
+  const cash = 150000
   const team = []
   const sources = people.reduce(function(arr, person) {
     const existingSource = arr.find(({ source }) => source === person.source)
@@ -16,43 +19,28 @@ const Store = ({ children }) => {
     return arr
   }, []);
 
-  const INITIAL_STORE = { events, team, sources,
-    features: [{id: 1, title: 'Add card', description: 'Add capability to add a card in a column'}],
-    kanban: {
-      columns: [
-        {
-          id: 1,
-          title: 'Backlog',
-          cards: [
-            {
-              id: 1,
-              title: 'Add card',
-              description: 'Add capability to add a card in a column'
-            },
-          ]
-        },
-        {
-          id: 2,
-          title: 'In progress',
-          cards: [
-            {
-              id: 2,
-              title: 'Drag-n-drop support',
-              description: 'Move a card between the columns'
-            },
-          ]
-        },
-        {
-          id: 3,
-          title: 'Done',
-          cards: []
-        }
-      ]
-    },
-    featureGroups: [{ id: 1, name: 'Social', features: [ { id: 1, name: 'Chat' }, { id: 2, name: 'Comments' }, { id: 3, name: 'Reactions' } ] },
-                         { id: 2, name: 'eCommerce', features: [ { id: 4, name: 'Cart' }, { id: 5, name: 'Payments' } ] }],
-    cash: 151332
+  const kanban = {
+    columns: [
+      {
+        id: 1,
+        title: 'Backlog',
+        cards: []
+      },
+      {
+        id: 2,
+        title: 'In progress',
+        cards: []
+      },
+      {
+        id: 3,
+        title: 'Done',
+        cards: []
+      }
+    ]
   }
+
+  
+  const INITIAL_STORE = { events, team, sources, features, kanban, roadmap, cash }
 
   const EVENT_ACTIONS = {
     addCash: ({amount}) => setState({ ...state, cash: state.cash + amount })
@@ -67,7 +55,11 @@ const Store = ({ children }) => {
   }
 
   // duplicative gets
-  const getState  = (key) => JSON.parse(JSON.stringify(state[key]))
+  const getState  = (key) => {
+    if(state[key] === undefined) throw new Error(`Key ${key} does not exist on the store.`)
+
+    return JSON.parse(JSON.stringify(state[key]))
+  }
   const getAction = (action) => (...args) => actions[action](...args)
 
   return(

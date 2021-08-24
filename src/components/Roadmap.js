@@ -10,7 +10,7 @@ const RoadmapItem = ({ children }) => {
 }
 
 const Roadmap = () => {
-  const featureGroups = useStore('featureGroups')
+  const featureGroups = useStore('roadmap')
   
   return (
     <div className="Roadmap">
@@ -18,7 +18,7 @@ const Roadmap = () => {
       <div className="Roadmap__Items">
       { featureGroups.map(({ id, name, features }) => <RoadmapItem key={`roadmap-item-${id}`}>
                                                         <h4 className="subheader">{name}</h4>
-                                                        { features.map(({ id, name }) => <div  key={`roadmap-feature-${id}`}>{name}</div>) }
+                                                        { features.map(({ id, title }) => <div  key={`roadmap-feature-${id}`}>{title}</div>) }
                                                       </RoadmapItem>) }
       </div>
     </div>
